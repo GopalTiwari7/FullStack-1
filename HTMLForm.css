@@ -1,0 +1,43 @@
+body{
+    background-color: aqua;
+    color:burlywood;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+table{
+    width: "500";
+    border-collapse: ;
+    table-layout: fixed;
+}
+td{
+    vertical-align: top;
+    padding: 5;
+    word-wrap: break-word;
+}
+
+
+/* IDs and Classes */
+#fullpage{
+    margin: 100;
+}
+
+.lebel_col{
+    text-align: right;
+}
+
+.input_col{
+    text-align: left;
+}
+
+.feedback_col{
+    text-align: center;
+    vertical-align: middle;
+    color: lightgrey;
+    font-size: small;
+}
+
+.Button{
+    margin: auto;
+    text-align: center;
+    width: 50;
+}
