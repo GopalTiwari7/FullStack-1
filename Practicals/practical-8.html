@@ -7,12 +7,12 @@
     <style>
         .container{
             width: 100%;
-            }
-            #header{
-                margin-bottom: 70px;
-            }
+        }
+        #header{
+            margin-bottom: 70px;
+        }
         ul{
-            position: fixed;
+            position:fixed;
             top: 0;
 
             width: 100%;
@@ -39,30 +39,262 @@
             background-color: #FFFFFF;
             color: #000000;
         }
+
+        #banner{
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        #top-left {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 50px;
+        }
+
+
+        #section1{
+            width: 100%;
+            margin: 15px;
+
+        }
+        #circle1{
+            width: 22%;
+            height: 300px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+        #circle2{
+            width: 22%;
+            height: 300px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        #circle3{
+            width: 22%;
+            height: 300px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        #circle4{
+            width: 22%;
+            height: 300px;
+            border-radius: 50%;
+            
+            
+            display: inline-block;
+            margin-right: 20px;
+        }
+        #section1 img{
+            border-radius: 50%;
+            height: 300px;
+            margin-right: 20px;
+
+        }
+
+
+        #section2{
+            width: 100%;
+            margin: 15px;
+        }
+        #left{
+            width: 48%;
+            height: 80vh;
+            
+            background-color: pink;
+            color: white;
+            font-size: 30px;
+            padding-left: 10px;
+            padding-right: 10px;
+            float: left;
+            margin-right: 15px;
+        
+        }
+        #right{
+            width: 48%;
+            height: 80vh;
+            float: left;
+
+        }
+        #article1{
+            width: 100%;
+            height: 26vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1vh;
+            color:black;
+            font-size: 25px;
+        }
+        #project1{
+            position: absolute;
+            top: 1430px;
+            left: 75%;
+            transform: translate(-50%, -50%);
+        }
+        #article2{
+            width: 100%;
+            height: 26vh;
+            background-color: wheat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1vh;
+            color: black;
+            font-size: 25px;
+        }
+        #project2{
+            position: absolute;
+            top: 1625px;
+            left: 75%;
+            transform: translate(-50%, -50%);
+        }
+        #article3{
+            width: 100%;
+            height: 26vh;
+            background-color: wheat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            font-size: 25px;
+        }
+        #project3{
+            position: absolute;
+            top: 1820px;
+            left: 75%;
+            transform: translate(-50%, -50%);
+        }
+        #section2 img{
+            width: 100%;
+            height: 26vh;
+
+        }
+
+
+        
+        #section3{
+            width: 100%;
+            margin: 15px;
+        }
+        #box{
+            width: 20%;
+            background-color: wheat;
+            text-align: center;
+            border: 2px solid white;
+            border-radius: 5px;
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-bottom: 30px;
+            padding: 5px;
+            float: left;
+        }
+        #section3 img{
+            width: 90%;
+            height: 155px;
+            margin-top: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 5px;
+
+        }
+        #section3 p{
+            text-align: justify;
+            padding-left: 10px;
+            padding-right: 10px;
+
+        }
+        #section3 a{
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            margin: 10px auto;
+            border-radius: 5px;
+            padding: 5px;
+
+        }
+        #section3 a:hover{
+            background-color: yellowgreen;
+            color: turquoise;
+        }
+
+        #footer{
+            width: 100%;
+            background-color: lightgrey;
+            height: 70px;
+            color:#000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
     </style>
 </head>
 <body>
+    <a name="top"></a>
     <div class="container">
         <div id="header">
             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT US</a></li>
-                <li><a href="#">TEAM</a></li>
-                <li><a href="#">TECHNOLOGIES</a></li>
-                <li><a href="#">CONTACT</a></li>
+                <li><a href="#top">HOME</a></li>
+                <li><a href="#about">ABOUT US</a></li>
+                <li><a href="#team">TEAM</a></li>
+                <li><a href="#techno">TECHNOLOGIES</a></li>
+                <li><a href="#contact">CONTACT</a></li>
             </ul>
         </div>
         <div id="banner">
-            <img src="main.png" alt="Banner Image">
+            <img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/main.png" alt="Banner Image">
+            <div id="top-left">PRACTICAL-8</div>
         </div>
-        <div id="content">
-            <div id="left-side">
-                <div id="nav">Navigation</div>
-                <div id="news">News Updates</div>
+        <a id="team"><h1 style="text-align: center">Team Members</h1></a>
+        
+        <div id="section1">
+            <br><br>
+            <div id="circle1"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/1.png" alt="Person 1"></div>
+            <div id="circle2"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/2.png" alt="Person 2"></div>
+            <div id="circle3"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/3.png" alt="Person 3"></div>
+            <div id="circle4"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/4.png" alt="Person 4"></div>
+        </div>
+        <a id="about"><h1 style="text-align: center;">About Us</h1></a>
+        <div id="section2">
+            <div id="left"><h3>About Projects</h3>We can easily say that JavaScript is the most potent tool in front-end development. It allows you to update the HTML and CSS of your website. It's capable of manipulating, calculating, and validating data. You can use JS to build a simple quiz game and test your knowledge of this robust programming language.
+
             </div>
-            <div id="right-side">Main Content</div>
+            <div id="right">
+                <div id="article1"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/p1.png" alt="Project1"><div id="project1">Project-1</div></div>
+                <div id="article2"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/p2.png" alt="Project2"><div id="project2">Project-2</div></div>
+                <div id="article3"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/p3.png" alt="Project3"><div id="project3">Project-3</div></div>
+            </div>
         </div>
-        <div id="footer">Footer</div>
+        <a id="techno"><h1 style="text-align: center;">Technologies Used</h1></a>
+        <div id="section3"><h1 style="text-align: center;"></a></h1>
+            <div id="box"><img src="https://gopaltiwari7.github.io/FullStack-1/images/HTML.png" alt="HTML image" />
+                <h4>Introduction to HTML</h4>
+                <p>HTML stands for Hypertext Markup Language. It allows the user to create and structure sections, paragraphs, headings, links, and blockquotes for web pages and applications. HTML is not a programming language, meaning it does not have the stored.....</p>
+                <a href="https://gopaltiwari7.github.io/FullStack-1/HTML">Read More</a></div>
+            <div id="box"><img src="https://gopaltiwari7.github.io/FullStack-1/images/CSS.png" alt="CSS image" />
+                <h4>Introduction to CSS</h4>
+                <p>CSS stands for Cascading Style Sheets. CSS describes how HTML elements are to be displayed on screen, paper, or in other media. CSS saves a lot of work. It can control the layout of multiple web pages all at once. External stylesheets are stored..........</p>
+                <a href="https://gopaltiwari7.github.io/FullStack-1/CSS">Read More</a></div>
+            <div id="box"><img src="https://gopaltiwari7.github.io/FullStack-1/images/JS.png" alt="JavaScript image" />
+                <h4>Introduction to JavaScript</h4>
+                <p>JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates.....</p>
+                <a href="https://gopaltiwari7.github.io/FullStack-1/JS">Read More</a></div>
+            <div id="box"><img src="https://gopaltiwari7.github.io/FullStack-1/images/bootstrap.png" alt="BootStrap image" />
+                <h4>Introduction to BootStrap</h4>
+                <p>Bootstrap is a framework to help you design websites faster and easier. It includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels, etc. It also gives you support for JavaScript plugins.....</p>
+                <a href="https://gopaltiwari7.github.io/FullStack-1/bootstrap">Read More</a></div>
+        </div>
+        <br><br><br>
+        <h1 style="text-align: center; font-size: 40px;"><a name="contact">Contact</a></h1>
+        <div id="footer">
+            <p>Website Template for Practical-8
+            <a href="https://gopaltiwari7.github.io/FullStack-1/"> site</a> <br><a href="#top">Back to Top</a></p></div>
 
     </div>
     
