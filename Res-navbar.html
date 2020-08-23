@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navighation Bar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{padding: 0;margin: 0;box-sizing: border-box;}
+        .header{
+            width: 100%;
+            height: 70px;
+            background-color: gray;
+            padding: 0 20px;
+        }
+        .header h2{
+            line-height: 70px;
+            float: left;
+            text-transform: uppercase;
+            color: white;
+        }
+        .header .menu{
+            list-style: none;
+            float: right;
+        }
+        .menu li{
+            display: inline-block;
+            line-height: 70px;
+        }
+        .menu li a{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            text-transform: uppercase;
+            padding: 0 20px;
+            transition: .4s;
+        }
+        .menu li a:hover,.show-btn:hover, .hide-btn:hover{
+            color: skyblue;
+
+        }
+        .show-btn, .hide-btn{
+            font-size: 30px;
+            color: white;
+            line-height: 70px;
+            display: none;
+            transition: .4s;
+        }
+        .show-btn{
+            float: right;
+        }
+        #chk{
+            position: absolute;
+            visibility: hidden;
+            z-index: -100;
+        }
+        @media(max-width: 800px){
+            .show-btn, .hide-btn{
+                display: block;
+            }
+            .menu{
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: black;
+                text-align: center;
+                padding: 80px 0;
+                transition: .7s;
+                line-height: normal;
+            }
+            #chk:checked ~ .menu{
+                right: 0;
+            }
+            .menu li{
+                display: block;
+            }
+            .menu li a{
+                display: block;
+            }
+            .hide-btn{
+                position: absolute;
+                right: 20px;
+                top: 10px;
+            }
+
+        }
+        .content{
+            padding: 20px;
+        }
+        .content img{
+            width: 100%;
+            max-width: 700px;
+            height: 450px;
+            display: block;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        .content p{
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Dark</h2>
+        <input type="checkbox" id="chk">
+        <label for="chk" class="show-btn">
+            <i class="fa fa-bars"></i>
+        </label>
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+            <label for="chk" class="hide-btn">
+                <i class="fa fa-times"></i>
+            </label>
+        </ul>
+    </div>
+    <div class="content">
+        <img src="https://gopaltiwari7.github.io/FullStack-1/images/brady-rogers-EExE6f2rsGc-unsplash.jpg" alt="image">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, ab odit. A illum, eveniet perspiciatis facilis quibusdam vitae. Assumenda modi veniam natus, placeat laboriosam ullam optio provident ab veritatis laborum. Omnis dignissimos dolores cumque aliquid porro necessitatibus magnam earum sunt, veniam harum architecto ratione et, iste, repellat sint. Ut accusantium, totam ea tempora aliquid ipsum. Ea officiis eius sequi cumque amet eligendi omnis nisi, ipsa autem fugiat maiores illo voluptatum magni corporis totam velit porro! Laudantium, possimus iste, deserunt porro sunt voluptatum, facilis sit cum quo quidem perspiciatis facere aliquid consequuntur aut molestias totam dignissimos iure aperiam esse incidunt sapiente officia autem? Iusto error, aspernatur doloremque excepturi earum quia amet sequi tenetur nemo porro magnam beatae culpa animi, a non laboriosam facilis? Corporis similique beatae unde nisi quaerat, animi minus! Reiciendis, eos recusandae sunt quibusdam odit est dicta non molestias autem, necessitatibus, accusantium voluptate perferendis! Quae explicabo aspernatur natus eos, dolore id aperiam sequi hic veritatis quidem quam porro sint officiis corporis quaerat itaque iure incidunt molestiae voluptas similique? Laborum eligendi culpa aliquam iste, voluptate amet delectus tempore dicta, ipsa eius exercitationem. Officiis commodi placeat ratione autem veritatis asperiores ipsum itaque reprehenderit quas fuga nam impedit ad facere nulla enim magni, aperiam velit id quos cupiditate esse eligendi. Ipsum fugiat corporis eligendi quo cum sequi recusandae aliquid ullam, eum optio! Sunt at asperiores fugit accusamus libero recusandae commodi id in repellendus sed, ex mollitia minus soluta neque molestias eum ea voluptatum doloremque iusto ipsa non deleniti aliquid consequatur! Ab repellat est ullam nobis quam omnis error, reprehenderit saepe porro doloribus temporibus, maiores iusto vero voluptas dolorum alias id sit harum magnam veritatis animi officiis praesentium vitae quos! Quasi, illo maiores, corrupti architecto tempora deleniti odio odit quis ducimus cupiditate ipsum aut incidunt magni voluptatum pariatur ullam recusandae iste assumenda aperiam tenetur modi culpa aspernatur. Mollitia sunt aliquam quo non blanditiis nemo ut culpa, quas perspiciatis distinctio. Et alias vitae eos ipsum omnis. Quos deserunt dolorem, esse possimus cum quam hic nisi quis cumque laborum animi facere incidunt voluptatum eveniet, recusandae saepe optio enim corporis consequuntur molestiae quasi fugiat culpa. Excepturi delectus illum voluptas libero dolores, suscipit dolor iste ratione modi quo at sapiente provident tempore quae. Ad maxime laboriosam odit voluptatum commodi iure, sint magni itaque cum, fugit accusamus sit laborum quos fugiat harum praesentium? Dolor excepturi fuga aut autem dolorum reiciendis ullam. Minus ad adipisci aliquid commodi autem molestiae. Magnam, quis aut magni fugiat voluptate porro ipsa voluptas, perspiciatis, libero fuga voluptatibus velit. Quia, perferendis excepturi qui nam totam debitis, ut, quis magni earum at nobis non similique. Iure voluptas, quasi cupiditate consectetur sequi non blanditiis nulla, vitae sint adipisci at dolor, quos nostrum fugiat porro quod magnam molestias asperiores itaque sed voluptatibus iusto! Cumque est consequatur quisquam? Earum omnis placeat nemo alias tempore vel quis doloribus sunt quia nulla qui perspiciatis enim repudiandae mollitia, cumque amet neque odit quaerat! Cupiditate dolore beatae animi a doloremque cumque ut facilis veniam repellendus fuga architecto, nulla quam quidem eum soluta temporibus.</p>
+    </div>
+    
+</body>
+</html>
