@@ -1,315 +1,1029 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practical 9</title>
-    <style>
-        html{
-            scroll-padding-top: 60px;
-            /* height of the header */
-        
-            /*  Smooth Scroll Code  */
-            scroll-behavior: smooth;
-        }
-        .container{
-            width: 100%;
-        
-        }
-        
-        ul{
-            list-style-type: none;
-            display: flex;
-            justify-content:space-evenly; 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <title>Practical-9</title>
 
-        }
-        ul li{
-            display: inline-block; 
-        }
-        ul li a{
-            text-decoration: none;
-            width: 100px;
-            font-size: 30px;
-            font-family: Arial, Helvetica, sans-serif;
-            color:#FFFFFF;
-        }
-        ul li a:hover{
-            background-color: #FFFFFF;
-            color: #000000;
-        }
+  <style>
+    /* Reset all Margins & Padding */
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-        #banner{
-            margin-top: 100px;
-        }
-        #top-left {
-            position: absolute;
-            top: 100px;
-            left: 20px;
-            font-size: 50px;
-            color:white;
-        }
+    /* 
+      --Resolve Position Fixed Issue-- 
+                      & 
+        ----------Smooth Scroll ------ 
+      */
 
+    html {
+      scroll-padding-top: 70px;
+      scroll-behavior: smooth;
+    }
 
-        #section1{
-            width: 100%;
-            margin: 15px;
+    #container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-        }
-        #circle1{
-            width: 22%;
-            height: 300px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 20px;
-            margin-left: 20px;
-        }
-        #circle2{
-            width: 22%;
-            height: 300px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 20px;
-        }
-        #circle3{
-            width: 22%;
-            height: 300px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 20px;
-        }
-        #circle4{
-            width: 22%;
-            height: 300px;
-            border-radius: 50%;
-            
-            
-            display: inline-block;
-            margin-right: 20px;
-        }
-        #section1 img{
-            border-radius: 50%;
-            height: 300px;
-            margin-right: 20px;
+    /* ------Header Container-------- */
 
-        }
+    #header {
+      background-color: grey;
+      width: 100%;
+      height: 70px;
+      max-width: 1200px;
+      position: fixed;
+      top: 0;
+      height: 70px;
+    }
 
+    /* Navigation Menu  */
+    .menu {
+      list-style: none;
+      float: right;
+      padding: 0 20px;
+    }
 
-        #section2{
-            width: 100%;
-            margin: 15px;
-        }
-        #left{
-            width: 48%;
-            height: 80vh;
-            
-            background-color: pink;
-            color: white;
-            font-size: 30px;
-            padding-left: 10px;
-            padding-right: 10px;
-            float: left;
-            margin-right: 15px;
-        
-        }
-        #right{
-            width: 48%;
-            height: 80vh;
-            float: left;
+    .menu li {
+      display: inline-block;
+      line-height: 70px;
+    }
 
-        }
-        #article1{
-            width: 100%;
-            height: 26vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1vh;
-            color:black;
-            font-size: 25px;
-        }
-        #project1{
-            position: absolute;
-            top: 1460px;
-            left: 75%;
-            transform: translate(-50%, -50%);
-        }
-        #article2{
-            width: 100%;
-            height: 26vh;
-            background-color: wheat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1vh;
-            color: black;
-            font-size: 25px;
-        }
-        #project2{
-            position: absolute;
-            top: 1650px;
-            left: 75%;
-            transform: translate(-50%, -50%);
-        }
-        #article3{
-            width: 100%;
-            height: 26vh;
-            background-color: wheat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: black;
-            font-size: 25px;
-        }
-        #project3{
-            position: absolute;
-            top: 1850px;
-            left: 75%;
-            transform: translate(-50%, -50%);
-        }
-        #section2 img{
-            width: 100%;
-            height: 26vh;
+    .menu li a {
+      transition: 0.4s;
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 0px 20px;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
 
-        }
+    .menu li a:hover {
+      color: black;
+      background-color: white;
+    }
 
+    .show-btn,
+    .hide-btn,
+    #chk {
+      font-size: 30px;
+      line-height: 70px;
+      color: white;
+      display: none;
+      float: right;
+      padding-right: 20px;
+    }
 
-        
-        #section3{
-            width: 100%;
-            margin: 15px;
-        }
-        #box{
-            width: 20%;
-            background-color: wheat;
-            text-align: center;
-            border: 2px solid white;
-            border-radius: 5px;
-            margin-left: 30px;
-            margin-right: 30px;
-            margin-bottom: 30px;
-            padding: 5px;
-            float: left;
-        }
-        #section3 img{
-            width: 90%;
-            height: 155px;
-            margin-top: 10px;
-            margin-left: 5px;
-            margin-right: 5px;
-            border-radius: 5px;
+    /* ------------------Banner ------------- */
 
-        }
-        #section3 p{
-            text-align: justify;
-            padding-left: 10px;
-            padding-right: 10px;
+    #banner {
+      width: 100%;
+      margin-top: 90px;
+      height: 680px;
+      margin-bottom: 15px;
+      display: flex;
+      font-size: 40px;
+      color: white;
+    }
 
-        }
-        #section3 a{
-            display: block;
-            text-decoration: none;
-            text-align: center;
-            margin: 10px auto;
-            border-radius: 5px;
-            padding: 5px;
+    #banner {
+      background-image: url(https://imgur.com/qIxEnMl.jpg);
+      background-size: cover;
+      background-position: center;
+    }
 
-        }
-        #section3 a:hover{
-            background-color: yellowgreen;
-            color: turquoise;
-        }
+    #banner h2 {
+      margin: 20px 20px;
+      color: #fff;
+    }
 
-        #footer{
-            width: 100%;
-            background-color: lightgrey;
-            height: 70px;
-            color:#000000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        @media(min-width: 1201px){
-        #header{
-            position:fixed;
-            top: 0;
+    /* ------- Team Members ----- */
 
-            width: 100%;
-            height: 60px;
-            
-            padding: 10px;
-           
-            background-color: grey;
-            margin: auto;
-        }
-        
+    #section1 {
+      width: 100%;
+      margin: 15px auto;
+    }
 
-        }
+    #section1::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
 
-    </style>
-</head>
-<body>
-    <div id="top"></div>
-    <div class="container">
-        <div id="header">
-            <ul>
-                <li><a href="#top">HOME</a></li>
-                <li><a href="#about">ABOUT US</a></li>
-                <li><a href="#team">TEAM</a></li>
-                <li><a href="#techno">TECHNOLOGIES</a></li>
-                <li><a href="#contact">CONTACT</a></li>
-            </ul>
-        </div>
-        <div id="banner">
-            <img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/main.png" alt="Banner Image">
-            <div id="top-left">PRACTICAL-8</div>
-        </div>
-        <a id="team"><h1 style="text-align: center">Team Members</h1></a>
-        
-        <div id="section1">
-            <br><br>
-            <div id="circle1"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/1.png" alt="Person 1"></div>
-            <div id="circle2"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/2.png" alt="Person 2"></div>
-            <div id="circle3"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/3.png" alt="Person 3"></div>
-            <div id="circle4"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/4.png" alt="Person 4"></div>
-        </div>
-        <a id="about"><h1 style="text-align: center;">About Us</h1></a>
-        <div id="section2">
-            <div id="left"><h3>About Projects</h3>We can easily say that JavaScript is the most potent tool in front-end development. It allows you to update the HTML and CSS of your website. It's capable of manipulating, calculating, and validating data. You can use JS to build a simple quiz game and test your knowledge of this robust programming language.
+    .circle img {
+      height: 250px;
+      width: 250px;
+      border-radius: 50%;
+      background-color: goldenrod;
+      float: left;
+      margin-left: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+    }
 
-            </div>
-            <div id="right">
-                <div id="article1"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/p1.png" alt="Project1"><div id="project1">Project-1</div></div>
-                <div id="article2"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/p2.png" alt="Project2"><div id="project2">Project-2</div></div>
-                <div id="article3"><img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/p3.png" alt="Project3"><div id="project3">Project-3</div></div>
-            </div>
-        </div>
-        <a id="techno"><h1 style="text-align: center;">Technologies Used</h1></a>
-        <div id="section3"><h1 style="text-align: center;"></a></h1>
-            <div id="box"><img src="https://gopaltiwari7.github.io/FullStack-1/images/HTML.png" alt="HTML image" />
-                <h4>Introduction to HTML</h4>
-                <p>HTML stands for Hypertext Markup Language. It allows the user to create and structure sections, paragraphs, headings, links, and blockquotes for web pages and applications. HTML is not a programming language, meaning it does not have the stored.....</p>
-                <a href="https://gopaltiwari7.github.io/FullStack-1/HTML">Read More</a></div>
-            <div id="box"><img src="https://gopaltiwari7.github.io/FullStack-1/images/CSS.png" alt="CSS image" />
-                <h4>Introduction to CSS</h4>
-                <p>CSS stands for Cascading Style Sheets. CSS describes how HTML elements are to be displayed on screen, paper, or in other media. CSS saves a lot of work. It can control the layout of multiple web pages all at once. External stylesheets are stored..........</p>
-                <a href="https://gopaltiwari7.github.io/FullStack-1/CSS">Read More</a></div>
-            <div id="box"><img src="https://gopaltiwari7.github.io/FullStack-1/images/JS.png" alt="JavaScript image" />
-                <h4>Introduction to JavaScript</h4>
-                <p>JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates.....</p>
-                <a href="https://gopaltiwari7.github.io/FullStack-1/JS">Read More</a></div>
-            <div id="box"><img src="https://gopaltiwari7.github.io/FullStack-1/images/bootstrap.png" alt="BootStrap image" />
-                <h4>Introduction to BootStrap</h4>
-                <p>Bootstrap is a framework to help you design websites faster and easier. It includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels, etc. It also gives you support for JavaScript plugins.....</p>
-                <a href="https://gopaltiwari7.github.io/FullStack-1/bootstrap">Read More</a></div>
-        </div>
-        <br><br><br>
-        <h1 style="text-align: center; font-size: 40px;"><a name="contact">Contact</a></h1>
-        <div id="footer">
-            <p>Website Template for Practical-8
-            <a href="https://gopaltiwari7.github.io/FullStack-1/"> site</a> <br><a href="#top">Back to Top</a></p></div>
+    /* -------------About Us-------------- */
+    #section2::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
 
-    </div>
+    #left-side {
+      width: 50%;
+      height: 550px;
+      background-color: gray;
+      float: left;
+      color: #fff;
+    }
+
+    #left-p>h2 {
+      text-align: left;
+      margin: 10px 5px;
+    }
+
+    #left-p>p {
+      font-size: 20px;
+      padding: 10px;
+      text-align: justify;
+      line-height: 28px;
+    }
+
+    #right-side {
+      width: 48%;
+      height: 550px;
+      float: right;
+    }
+
+    .article {
+      height: 31%;
+      margin-bottom: 20px;
+      background-color: chocolate;
+      display: flex;
+      justify-content: center;
+      font-size: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: black;
+      overflow: hidden;
+    }
+
+    #p1 {
+      background-image: url(https://gopaltiwari7.github.io/FullStack-1/Practicals/images/p1.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    #p2 {
+      background-image: url(https://gopaltiwari7.github.io/FullStack-1/Practicals/images/p2.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    #p3 {
+      background-image: url(https://gopaltiwari7.github.io/FullStack-1/Practicals/images/p3.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    /* --------- Technologies Used------------ */
+    #section3 {
+      width: 100%;
+      margin: 15px auto;
+    }
+
+    #section3::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .box {
+      width: 20%;
+      float: left;
+      margin-left: 50px;
+      background-color: lightgrey;
+      border-radius: 8px;
+      box-shadow: 0 5px 5px rgba(0, 0.2, 0, 0.35);
+    }
+
+    .box>img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .box>h4 {
+      margin: 0px 10px;
+      text-align: center;
+    }
+
+    .box>p {
+      margin: 10px;
+      font-size: 15px;
+      text-align: justify;
+      line-height: 25px;
+      color: white;
+    }
+
+    .box>a {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      color: #fff;
+      background-color: red;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    h1 {
+      color: black;
+      font-size: 40px;
+      text-align: center;
+      padding: 25px 0px;
+    }
+
+    .box>a:hover {
+      background-color: blue;
+    }
+
+    /* -------Footer Section ------- */
+    #footer {
+      background-color: plum;
+      height: 100px;
+    }
+
+    #footer>p {
+      font-size: 16px;
+      color: black;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* 1. First Break-point */
+    /* 801px - 1199px */
+
+    @media (min-width: 801px) and (max-width: 1199px) {
+    .menu {
+      list-style: none;
+      float: right;
+    }
+
+    .menu li {
+      line-height: 70px;
+      display: inline-block;
+    }
+
+    .menu li a {
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 0px 20px;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    .menu li a:hover {
+      color: black;
+      background-color: white;
+    }
+
+    html {
+      scroll-padding-top: 70px;
+      scroll-behavior: smooth;
+    }
+
+    #container {
+      width: 100%;
+    }
+
+    .show-btn,
+    .hide-btn,
+    #chk {
+      font-size: 30px;
+      line-height: 70px;
+      color: white;
+      display: none;
+      float: right;
+      padding-right: 20px;
+    }
+
+    /* ------Header Container-------- */
+
+    #header {
+      width: 100%;
+      background-color: grey;
+      position: fixed;
+      top: 0;
+      height: 70px;
+    }
+
+    /* ------------------Banner ------------- */
+
+    #banner {
+      width: 100%;
+      margin-top: 90px;
+      height: 680px;
+      margin-bottom: 15px;
+      display: flex;
+      font-size: 40px;
+      color: white;
+    }
+
+    #banner {
+      background-image: url(https://gopaltiwari7.github.io/FullStack-1/Practicals/images/main.png);
+      background-size: cover;
+      background-position: center;
+    }
+
+    #banner h2 {
+      margin: 20px 20px;
+      color: #fff;
+    }
+
+    /* ------- Team Members ----- */
+
+    #section1 {
+      width: 100%;
+    }
+
+    #section1::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .circle img {
+      height: 250px;
+      width: 250px;
+      border-radius: 50%;
+      background-color: goldenrod;
+      float: left;
+      margin-left: 15%;
+      margin-bottom: 20px;
+    }
+
+    /* -------------About Us-------------- */
+
+    #section2::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    #left-side {
+      width: 50%;
+      height: 550px;
+      background-color: gray;
+      float: left;
+      color: #fff;
+    }
+
+    #left-p>h2 {
+      text-align: left;
+      margin: 10px 5px;
+    }
+
+    #left-p>p {
+      font-size: 20px;
+      padding: 10px;
+      text-align: justify;
+      line-height: 28px;
+    }
+
+    #right-side {
+      width: 48%;
+      height: 550px;
+      float: right;
+    }
+
+    .article {
+      height: 31%;
+      margin-bottom: 20px;
+      background-color: chocolate;
+      display: flex;
+      justify-content: center;
+      font-size: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: black;
+      overflow: hidden;
+    }
+
+    #p1 {
+      background-image: url(https://gopaltiwari7.github.io/FullStack-1/Practicals/images/p1.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    #p2 {
+      background-image: url(https://gopaltiwari7.github.io/FullStack-1/Practicals/images/p2.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    #p3 {
+      background-image: url(https://gopaltiwari7.github.io/FullStack-1/Practicals/images/p3.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    /* --------- Technologies Used------------ */
+    #section3 {
+      width: 100%;
+      margin: 15px auto;
+    }
+
+    #section3::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .box {
+      width: 40%;
+      float: left;
+      margin-left: 65px;
+      margin-bottom: 20px;
+      background-color: lightgrey;
+      border-radius: 8px;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .box>img {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 20px;
+    }
+
+    .box>h4 {
+      margin: 0px 10px;
+      text-align: center;
+    }
+
+    .box>p {
+      margin: 10px;
+      font-size: 20px;
+      text-align: justify;
+      line-height: 30px;
+      color: white;
+    }
+
+    .box>a {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      color: #fff;
+      background-color: red;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    h1 {
+      color: black;
+      font-size: 40px;
+      text-align: center;
+      padding: 25px 0px;
+    }
+
+    .box>a:hover {
+      background-color: blue;
+    }
+
+    /* -------Footer Section ------- */
+    #footer {
+      background-color: plum;
+      height: 100px;
+    }
+
+    #footer>p {
+      font-size: 16px;
+      color: black;
+      text-align: center;
+      padding: 20px;
+    }
+  }
+  /* 2. Second Break-point */
+
+  @media (max-width: 800px) {
+    #header {
+      width: 100%;
+      background-color: grey;
+      position: fixed;
+      top: 0;
+      height: 70px;
+    }
+
+    .show-btn {
+      display: block;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      background-color: #333;
+      text-align: center;
+      padding: 80px 0px;
+      line-height: normal;
+      transition: 0.7s;
+    }
+
+    .menu li {
+      display: block;
+    }
+
+    .manu li a {
+      display: block;
+    }
+
+    #chk:checked~.menu {
+      right: 0;
+    }
+
+    .hide-btn {
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+    }
+
+    #banner {
+      width: 100%;
+      height: 350px;
+      margin-bottom: 15px;
+      display: flex;
+      font-size: 30px;
+      color: white;
+      margin-top: 90px;
+    }
+
+    #banner h2 {
+      margin: 10px 20px;
+      color: #fff;
+    }
+
+    #section1 {
+      width: 100%;
+    }
+
+    #section1::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .circle img {
+      height: 250px;
+      width: 250px;
+      border-radius: 50%;
+      float: left;
+      margin-left: 10%;
+      margin-bottom: 20px;
+    }
+
+    #left-side {
+      width: 100%;
+      height: 200px;
+      background-color: gray;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    #left-p>h2 {
+      text-align: left;
+      margin: 5px 5px;
+    }
+
+    #left-p>p {
+      font-size: 20px;
+      padding: 10px;
+      text-align: justify;
+      line-height: 28px;
+    }
+
+    #right-side {
+      width: 100%;
+      height: 400px;
+    }
+
+    .article {
+      height: 31%;
+      margin-bottom: 20px;
+      background-color: chocolate;
+      display: flex;
+      justify-content: center;
+      font-size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: black;
+      overflow: hidden;
+    }
+
+    #p1 {
+      background-image: url(https://imgur.com/JyMz0CR.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    #p2 {
+      background-image: url(https://imgur.com/GFLWoXM.jpeg);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    #p3 {
+      background-image: url(https://imgur.com/uzmZqZA.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    #section3 {
+      width: 100%;
+      margin: 15px auto;
+    }
+
+    #section3::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .box {
+      width: 40%;
+      float: left;
+      margin-left: 50px;
+      background-color: lightgrey;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .box>img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .box>h4 {
+      margin: 0px 10px;
+      text-align: center;
+    }
+
+    .box>p {
+      margin: 10px;
+      font-size: 15px;
+      text-align: justify;
+      line-height: 25px;
+      color: white;
+    }
+
+    .box>a {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      color: #fff;
+      background-color: red;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    h1 {
+      color: black;
+      font-size: 40px;
+      text-align: center;
+      padding: 25px 0px;
+    }
+  }
+  /* 3. Third Break-point */
+
+  @media (max-width: 625px) {
+      /* Set container to min-width of 320px */
+
+      #container {
+        min-width: 320px;
+      }
+
+      .show-btn {
+        display: block;
+      }
+
+      .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        background-color: #333;
+        text-align: center;
+        padding: 80px 0px;
+        line-height: normal;
+        transition: 0.7s;
+      }
+
+      .menu li {
+        display: block;
+      }
+
+      .manu li a {
+        display: block;
+      }
+
+      #chk:checked~.menu {
+        right: 0;
+      }
+
+      .hide-btn {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+      }
+
+      #banner {
+        width: 100%;
+        height: 250px;
+        margin-bottom: 15px;
+        color: white;
+        margin-top: 90px;
+      }
+
+      #banner h2 {
+        margin: 10px 20px;
+        color: #fff;
+        font-size: 20px;
+      }
+
+      #section1 {
+        width: 90%;
+        margin-left: 10%;
+      }
+
+      .circle img {
+        height: 70%;
+        width: 70%;
+
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+
+      #left-side {
+        width: 100%;
+        height: 200px;
+        background-color: gray;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+
+      #left-p>h2 {
+        text-align: left;
+        margin: 5px 5px;
+      }
+
+      #left-p>p {
+        font-size: 20px;
+        padding: 10px;
+        text-align: justify;
+        line-height: 28px;
+      }
+
+      #right-side {
+        width: 100%;
+        height: 400px;
+      }
+
+      .article {
+        box-sizing: border-box;
+        height: 31%;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        overflow: hidden;
+      }
+
+      #p1 {
+        background-image: url(https://imgur.com/JyMz0CR.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      #p2 {
+        background-image: url(https://imgur.com/GFLWoXM.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      #p3 {
+        background-image: url(https://imgur.com/uzmZqZA.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      #section3 {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .box {
+        margin-left: 20px;
+        width: 90%;
+        background-color: lightgrey;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+        max-height: 500px;
+      }
+
+      .box>img {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 20px;
+      }
+
+      .box>h4 {
+        margin: 0px 10px;
+        text-align: center;
+      }
+
+      .box>p {
+        margin: 10px;
+        font-size: 15px;
+        text-align: justify;
+        line-height: 25px;
+        color: white;
+      }
+
+      .box>a {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        color: #fff;
+        background-color: red;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      h1 {
+        color: black;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 25px;
+        padding-bottom: 15px;
+      }
+    }
     
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="header">
+      <input type="checkbox" id="chk" />
+      <label for="chk" class="show-btn">
+        <i class="fa fa-bars"></i>
+      </label>
+      <ul class="menu">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#section1">Team</a></li>
+        <li><a href="#techno">Technologies</a></li>
+        <li><a href="#contact">contact</a></li>
+
+        <label for="chk" class="hide-btn">
+          <i class="fa fa-times"></i>
+        </label>
+      </ul>
+    </div>
+    <a name="top"></a>
+
+    <div id="banner">
+      <h2>PRACTICAL - 9</h2>
+    </div>
+    <div id="section1">
+      <h1>Team Members</h1>
+      <div class="circle">
+        <img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/1.png" alt="Person-1" />
+      </div>
+      <div class="circle">
+        <img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/2.png" alt="Person-2" />
+      </div>
+      <div class="circle">
+        <img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/3.png" alt="Person-3" />
+      </div>
+      <div class="circle">
+        <img src="https://gopaltiwari7.github.io/FullStack-1/Practicals/images/1.png" alt="Person-4" />
+      </div>
+    </div>
+    <div id="section2">
+      <a name="about"></a>
+      <h1>About Us</h1>
+      <div id="left-side">
+        <div class="left-content">
+          <div id="left-p">
+            <h2>About Projects</h2>
+            <p>
+                We can easily say that JavaScript is the most potent tool in front-end development.
+                It allows you to update the HTML and CSS of your website. It's capable of manipulating,
+                calculating, and validating data. You can use JS to build a simple quiz game and test 
+                your knowledge of this robust programming language.
+                We can easily say that JavaScript is the most potent tool in front-end development.
+                It allows you to update the HTML and CSS of your website. It's capable of manipulating,
+                calculating, and validating data. You can use JS to build a simple quiz game and test.
+                We can easily say that JavaScript is the most potent tool in front-end development.
+                It allows you to update the HTML and CSS of your website. It's capable of manipulating,
+                calculating, and validating data. You can use JS to build a simple quiz game and test.
+                We can easily say that JavaScript is the most potent tool in front-end development.
+                It allows you to update the HTML and CSS of your website. It's capable of manipulating,
+                calculating, and validating data. You can use JS to build a simple quiz game and test.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="right-side">
+        <div class="article" id="p1">
+          <h2>Project-1</h2>
+        </div>
+        <div class="article" id="p2">
+          <h2>Project-2</h2>
+        </div>
+        <div class="article" id="p3">
+          <h2>Project-3</h2>
+        </div>
+      </div>
+    </div>
+    <div id="section3">
+      <a name="techno"></a>
+      <h1>Technologies Used</h1>
+      <div class="box">
+        <img src="https://gopaltiwari7.github.io/FullStack-1/images/HTML.png" alt="HTML image" id="html" />
+        <h4>Introduction to HTML</h4>
+        <p>
+            HTML stands for Hypertext Markup Language. It allows the user
+            to create  and structure  the sections, paragraphs, headings, links,
+            and  blockquotes for  web pages and  applications. HTML is
+            not a programming language,it is markup.
+        </p>
+
+        <a href="https://gopaltiwari7.github.io/FullStack-1/HTML">Read More</a>
+      </div>
+      <div class="box">
+        <img src="https://gopaltiwari7.github.io/FullStack-1/images/CSS.png" alt="CSS image" />
+        <h4>Introduction to CSS</h4>
+        <p>
+            CSS stands for Cascading Style Sheets. CSS describes how HTML
+            elements are to be displayed on screen,paper,or in other media.
+            CSS saves a lot of work.It can control the layout of multiple
+            web pages all at once.External stylesheets are stored in external file with css.
+        </p>
+
+        <a href="https://gopaltiwari7.github.io/FullStack-1/CSS">Read More</a>
+      </div>
+      <div class="box">
+        <img src="https://gopaltiwari7.github.io/FullStack-1/images/JS.png" alt="JavaScript image" />
+        <h4>Introduction to JavaScript</h4>
+        <p>
+            JavaScript is a scripting or programming  language that allows you to
+            implement complex features on  web pages — every time a web page
+            does more than the just sit there  and display static  information
+            for you to look at — displaying timely content updates.
+        </p>
+
+        <a href="https://gopaltiwari7.github.io/FullStack-1/JS">Read More</a>
+      </div>
+      <div class="box">
+        <img src="https://gopaltiwari7.github.io/FullStack-1/images/bootstrap.png" alt="BootStrap image" />
+        <h4>Introduction to Bootstrap</h4>
+        <p>
+            Bootstrap is a framework to help you design websites faster and easier.
+            It includes HTML and CSS based design templates for typography, forms,
+            buttons, tables, navigation, modals, image carousels, etc. It also
+            gives you support for JavaScript plugins
+        </p>
+
+        <a href="https://gopaltiwari7.github.io/FullStack-1/bootstrap">Read More</a>
+      </div>
+    </div>
+    <a name="contact"></a>
+    <h1>Contact</h1>
+    <div id="footer">
+      <p>
+        Website Template for Practical-9 &copy;
+        <a href="https://gopaltiwari7.github.io/FullStack-1/">Site</a><br /><br />
+        <a href="#top">Back to top</a>
+      </p>
+    </div>
+  </div>
 </body>
+
 </html>

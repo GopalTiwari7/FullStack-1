@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact-Us</title>
+    <style>
+        .header{
+            width: 100%;
+            height: 80px;
+            background-color:blue;
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+        }
+        .header h1{
+            color: white;
+            text-align: center;
+        }
+        .main{
+            width: 100%;
+        }
+        .main #left{
+            width: 50%;
+            height: 500px;
+            background-color:lightgoldenrodyellow;
+            margin-left: 5%;
+            padding: 10px;
+            margin-top: 40px;
+            float: left;
+        }
+        .main #left #l1{
+            padding-left: 30px;
+        }
+        .form{
+            margin-bottom: 15px;
+        }
+        .#left .form #submit{
+            background-color:orange;
+        }
+        .main #right{
+            width: 30%;
+            height: 500px;
+            background-color:pink;
+            margin-left: 10%;
+            padding: 10px;
+            margin-top: 40px;
+            float: left;
+        }
+        .main #right #r1{
+            padding-left: 20px;
+
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Contact-Us</h1>
+
+    </div>
+
+    <div class="main">
+        <div id="left">
+            <div id="l1">
+            <h3>Ready To get Started?</h3>
+            <p>Please Use the form below to Contact-Us.We will never spam you,or sell your email to third party.</p>
+            <br>
+            <form class="form">
+
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" placeholder="Abhay singh" required><br><br>
+                <label for="email">Enter your email:</label><br>
+                <input type="email" id="email" name="email" placeholder="abc@gmail.com" required><br><br>
+                <label for="mobno">Mobile No:</label><br>
+                <input type="tel" id="mobno" name="mobno" placeholder="1234-567-890" pattern="[6-9]{1}[0-9]{3}-[0-9]{3}-[0-9]{3}" required><br><br>
+                <label for="name">School/College name:</label><br>
+                <input type="text" id="name" name="name" placeholder="Vatsalya Publlic School"  required><br><br>
+                <label for="msg">Message:</label><br>
+                <input type="text" id="msg" name="msg" placeholder="@@@@@@@@@@" required><br><br>
+                <input type="submit" value="Send Message" id="submit">
+            </form>
+            </div>
+        </div>
+        <div id="right">
+            <div id="r1">
+            <h2>Communication Details :</h2>
+            <p>Feel free to get in touch with our team!</p>
+            <h3>Write to us :</h3>
+            <p>abhayroy@gmail.com</p>
+            <h3>Talk to Experts :</h3>
+            <p>+919999999999</p>
+            <h3>Reaches to Us</h3>
+            <p>Kanna wali Chowk</p>
+            <p>mathura-245875</p>
+            <br><br>
+
+            <h2>Thanks to Visit the Site</h2>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
