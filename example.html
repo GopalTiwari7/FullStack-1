@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container p:nth-child(even){
+        background: red;
+    }
+    p:empty{
+        width: 100px;
+        height: 50px;
+        background: green;
+    }
+    p:only-child{
+        background: green;
+    }
+    #first::first-letter{
+        text-transform: uppercase;
+    }
+    p:only-child::after{
+        font-family: "FontAwesome";
+        content: \f008;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <p>This is a Paragraph</p>
+        <p></p>
+        <p>This is a Paragraph</p>
+        <p>This is a Paragraph</p>
+        <div>
+        <p>This is a Paragraph</p>
+        </div>
+    </div>
+    
+</body>
+</html>
