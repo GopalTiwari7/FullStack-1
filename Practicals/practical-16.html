@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical-16</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            background: linear-gradient(to right,rgb(45, 41, 112),rgb(100, 80, 200),rgb(125, 10, 180));
+            color: white;
+        }
+        h1{
+            color: white;
+            font-size: 40px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: center;
+            margin: 30px;
+            
+        }
+        #form1{
+            height: 20vh;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+        #todo-input, #todo-button{
+            padding: 10px;
+            border: none;
+            font-size: 24px;
+            background: white;
+            outline: none;
+        }
+
+        #todo-button{
+            color: rgb(49, 5, 78);
+            background-color: white;
+            cursor: pointer;
+        }
+
+        #todo-button:hover{
+            color: rgb(28, 204, 12);
+            background-color: rgb(65, 13, 148);
+        }
+
+        #todo-list-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .todo-list{
+            list-style: none;
+            width: 24%;
+        }
+
+        .todo{
+            background-color: white;
+            font-size: 24px;
+            color: black;
+            margin: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .todo-item{
+            flex: 1;
+            margin: 0px 8px;
+        }
+
+        .check-btn{
+            background-color: rgb(5, 167, 19);
+            padding: 16px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            outline: none;
+        }
+
+        .delete-btn{
+            background-color: rgb(238, 16, 16);
+            padding: 16px;
+            color: white;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        .fa-check,.fa-trash-o{
+            pointer-events: none;
+        }
+
+        .completed{
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="container">
+        <h1>FullStack To-Do-List</h1>
+        <form id="form1">
+            <input type="text" name="todo-input" id="todo-input">
+            <button name="todo-button" id="todo-button" onclick="add()"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+        </form>
+
+        <div id="todo-list-container">
+            <ul class="todo-list">
+
+            </ul>
+        </div>
+
+    </div>
+    <script>
+        var todo_input= document.getElementById("todo-input");
+        var todo_button=document.getElementById("todo-button");
+        var todo_list=document.querySelector(".todo-list");
+        var name = todo_input.value;
+        todo_button.onclick = create;
+        todo_list.onclick = checkdelete;
+
+        function create(e){
+            e.preventDefault();
+            if(todo_input.value){
+                var newdiv = document.createElement("div");
+                newdiv.classList.add("todo");
+
+                var newli = document.createElement("li");
+                newli.classList.add("todo-item");
+                newli.innerHTML=todo_input.value;
+                newdiv.appendChild(newli);
+
+                var checkbtn = document.createElement("button");
+                checkbtn.classList.add("check-btn");
+                checkbtn.innerHTML='<i class="fa fa-check" aria-hidden="true"></i>';
+                newdiv.appendChild(checkbtn);
+
+                var deletebtn = document.createElement("button");
+                deletebtn.classList.add("delete-btn");
+                deletebtn.innerHTML='<i class="fa fa-trash-o" aria-hidden="true">';
+                newdiv.appendChild(deletebtn);
+
+                todo_list.appendChild(newdiv);
+                todo_input.value="";
+            }
+            else{
+                alert("List can't be Empty");
+            }            
+        }
+
+        function checkdelete(e){
+            var x = e.target;
+            if(x.classList[0]==="delete-btn"){
+                var parent = x.parentNode;
+                parent.remove();
+            }
+            if(x.classList[0]==="check-btn"){
+                var parent = x.parentNode;
+                parent.classList.toggle("completed");
+            }
+
+        }
+</script>
+</body>
+</html>
