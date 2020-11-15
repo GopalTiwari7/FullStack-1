@@ -97,3 +97,4 @@ function setName(e) {
 showTime();
 setGreeting();
 getName();
+setName();
