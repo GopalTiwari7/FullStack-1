@@ -1,86 +1,98 @@
-// Selector
-
+// selector
 const time = document.getElementById("time");
 const greeting = document.getElementById("greeting");
 const name = document.getElementById("name");
 const date = document.getElementById("date");
-//Shift+alt+downarroe
 
-//Event Listener
+// shift+alt+downarrow to duplicate code
 
-name.addEventListener("keyPress",setName);
-name.addEventListener("blur",setName);
+// event listner
 
+name.addEventListener("keypress", setName);
+name.addEventListener("blur", setName);
 
-//Functions
-
-function showTime(){
-
+// function
+function showTime() {
     let today = new Date();
-    let hour = today.getHours();      //8
-    let min = today.getMinutes();       //32
-    let sec = today.getSeconds();       //00
-    let todayDate = today.toDateString();  //fri nov 06 2020
+    // console.log(today);
 
-    //am pm format
-    const amPm = hour>12 ?'PM' : 'AM';
+    let hour = today.getHours(); // 8
+    // console.log(hour)
 
-    //12 hour format
-    hour = hour%12 || 12;
+    let min = today.getMinutes(); // 32
+    let sec = today.getSeconds(); // 22
+    let todaydate = today.toDateString(); // fri nov 6 2020 
 
-    //output time
-    time.innerHTML = `${addZero(hour)}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)}<span>:</span>${amPm}`;
-    //hh:mm:ss AM (Required Time FOrmat)
+    // AM & PM Format
 
-    setTimeout(showTime,1000);      //1000ms = 1 sec
+    const ampm = hour > 12 ? 'PM' : 'AM';
+
+    // convert to 12 hrs format 
+    hour = hour % 12 || 12; // hour = 12 % 12 = 0
+
+    // output time  no concatinatio with tilt bracket
+
+    time.innerHTML = `${addZero(hour)}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)}<span>  </span>${ampm}`;
+
+    date.innerHTML = `${todaydate}`;
+
+    setTimeout(showTime, 1000);
+
 
 }
-//adding zero to less than 10
-function addZero(n){
-    return((parseInt(n,10)<10 ? '0' : '')+n);
+
+// for zero adding hh:mm:ss
+function addZero(number) {
+    return ((parseInt(number) < 10 ? '0' : '') + number) // optional parseInt(num,10)
 }
 
-function setGreeting(){
+function setGreeting() {
+    let today = new Date(); //2020, 12, 12, 15, 12, 12, 15
+    let hour = today.getHours(); // 8
 
-    let today = new Date();
-    let hour = today.getHours();
-    if(hour<12){
-        document.body.style.backgroundImage = 'url("")';
-        greeting.innerHTML = "Good Morning";
-    }
-    else if(hour<18){
-        document.body.style.backgroundImage = 'url("")';
-        greeting.innerHTML = "Good Afternoon";
-    }
-    else{
-        document.body.style.backgroundImage = 'url("")';
-        greeting.innerHTML = "Good Evening";
+    if (hour < 12) {
+        document.body.style.backgroundImage = 'url("morning.jpg")';
+        greeting.innerHTML = 'Good Morning';
+        document.body.style.color = "white";
+    } else if (hour < 18) {
+        document.body.style.backgroundImage = 'url("afternoon.jpg")';
+        greeting.innerHTML = 'Good Afternoon';
+    } else {
+        document.body.style.backgroundImage = 'url("night.jpg")';
+        greeting.innerHTML = 'Good Evening';
         document.body.style.color = "white";
     }
+
 }
-function getName(){
-    if(localStorage.getItem('myName')===null){
+
+
+// it takes data from local storage 
+
+function getName() {
+    if (localStorage.getItem('myName') === null) {
         name.innerHTML = "[Enter Name]";
-    }
-    else{
-        name.innerHTML = localStorage.getItem("myName");
-    }
-}
-
-// create a function to store data in local storage
-
-function setName(e){
-    if(e.type==="keypress"){
-        if(e.keyCode===13)
-        localStorage.setItem('myName',e.target.innerHTML);
-        name.blur();
-    }
-    else{
-        localStorage.setItem('myName',e.target.innerHTML);
+    } else {
+        name.innerHTML = localStorage.getItem('myName');
     }
 }
 
-//Function call
+// Function to store data in Local Storage
+
+function setName(e) {
+    if (e.type === "keypress") {
+        console.log(e.type)
+        if (e.keyCode == 13) {
+            localStorage.setItem('myName', e.target.innerHTML);
+            name.blur();
+        }
+    } else {
+        localStorage.setItem('myName', e.target.innerHTML);
+    }
+}
+
+
+
+// function calling
 
 showTime();
 setGreeting();
