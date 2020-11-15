@@ -81,7 +81,7 @@ function getName() {
 function setName(e) {
     if (e.type === "keypress") {
         console.log(e.type)
-        if (e.keyCode == 13) {
+        if (e.keyCode === 13) {
             localStorage.setItem('myName', e.target.innerHTML);
             name.blur();
         }
