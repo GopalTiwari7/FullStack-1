@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery introduction and implementation</title>
+    <!--
+        Using downloaded jquery
+    -->
+    <script src="./jquery-3.5.1.js"></script>
+    <!--
+        using cdn
+    -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!--
+        Jquery statements in header section using script tag
+    -->
+    <script>
+        // 1. JavaScript code
+        //var a = document.querySelector('h1').innerHTML;
+        //alert(a);
+
+        // 2. JQuery Statement
+        $(document).ready(function(){
+            var a = $("h1").html();
+            alert(a);
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Introduction to JQuery</h1>
+    
+    
+</body>
+</html>
